@@ -1,0 +1,136 @@
+<html>
+<head>
+<title>PPI</title>
+<link href="style/main.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.custom.min.css" />
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.custom.min.js"></script>
+<script src="js/submit.js"></script>
+<script src="js/validate.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style6.css" />
+<script>
+$(function() {
+$( "#tabs" ).tabs();
+});
+function validateAndSubmit(){
+	if(validateAll()){
+		//submit only if all validation rules are passed
+		if(window.confirm("Proceed? are u sure ?")){
+			submitDetails();
+		}
+	}else{
+		//do nothing
+	}
+}
+
+function validateAndCheckJobStatus(){
+	if(validateJobid()){
+		//jobid has been validated, ok to query server
+		checkJobStatus();
+	}else{
+		//do nothing
+	}
+}
+</script>
+</head>
+<body>
+<div class="main">
+<div class="header">
+<div class="banner"><b>PPIcons WEB PREDICTOR FOR PROTEIN-PROTEIN <span>INTERACTION</span></b></div>
+</div>
+<div>
+
+
+
+
+<div id="tabs">
+
+<ul class="ca-menu">
+	<li>
+		<a href="#tabs-1">
+			<span class="ca-icon">a</span>
+			<div class="ca-content">
+				<h2 class="ca-main">Start</h2>
+				<h3 class="ca-sub">Set prediction parameters</h3>
+			</div>
+		</a>
+	</li>
+	<li>
+		<a href="#tabs-2">
+			<span class="ca-icon">u</span>
+			<div class="ca-content">
+				<h2 class="ca-main">Results</h2>
+				<h3 class="ca-sub">Check progress and predictions</h3>
+			</div>
+		</a>
+	</li>
+	<li>
+		<a href="#tabs-3">
+			<span class="ca-icon">n</span>
+			<div class="ca-content">
+				<h2 class="ca-main">Database</h2>
+				<h3 class="ca-sub">View prediction database</h3>
+			</div>
+		</a>
+	</li>
+	
+</ul>
+<div id="tabs-1">
+<br>
+<table><tr>
+<td>Name:</td>
+<td><input type="text" name="name" id="name" size=30 /></td>
+</tr><tr>
+<td>Email-id:</td>
+<td><input type="text" name="email" id="email" size=30 /></td>
+</tr>
+</table>
+
+<br> Enter primary sequence of 1st protein:<br>
+<textarea  name="seq1" id="seq1" rows="5" cols="100"> </textarea>
+<br>
+
+<br> Enter primary sequence of 2nd protein:<br>
+<textarea name="seq2"  id="seq2" rows="5" cols="100"> </textarea>
+<br>
+
+<br>
+<select name="species" id="species">
+<optgroup label="Organism">
+<option value="E.coli">E.coli</option>
+<option value="Yeast">Yeast</option>
+<option value="Homosapiens">Homo sapiens</option>
+</optgroup>
+</select><br><br>
+
+
+<input type="button" value="SUBMIT" onclick="validateAndSubmit();">
+
+</div>
+
+<div id="tabs-2">
+<br>
+<table><tr>
+<td>Job#</td><td><input type="text" id="job"></td><td><input type="button" value="CHECK" onclick="validateAndCheckJobStatus();"></td>
+</tr>
+<tr><td>Status</td><td><div id="progressbar"></div></td><td></td></tr>
+</table>
+
+</div>
+
+<div id="tabs-3">
+<br>
+<a href="tools/download.php?file=ec">E.coli db</a></br>
+   <a href="tools/download.php?file=ye">Yeast db</a></br>
+   <a href="tools/download.php?file=hs">Homo Sapiens db</a></br>
+   <a href="release.html" target="_blank">New Release</a></br>
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+</body>
+</html>
