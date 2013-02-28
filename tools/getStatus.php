@@ -9,7 +9,7 @@ if(empty($jobid)){
 		//valid jpb id, directory exists
 		$statf=$dp."/"."timeinfo.txt";
 		if(is_file($statf)){
-			$file=fopen($statf);
+			$file=fopen($statf,"r");
 			if($file){
 				$s=fgets($file);
 				$arr=explode(",",$s);
