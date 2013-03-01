@@ -8,6 +8,11 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.feedback{
+	font-family: 'WebSymbolsRegular', cursive;
+}
+
 .ca-menu{
     padding:0;
     margin:20px auto;

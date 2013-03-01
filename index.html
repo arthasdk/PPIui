@@ -7,30 +7,11 @@
 <script src="js/jquery-ui.custom.min.js"></script>
 <script src="js/submit.js"></script>
 <script src="js/validate.js"></script>
+<script src="js/misc.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style6.css" />
 <script>
-$(function() {
-$( "#tabs" ).tabs();
-});
-function validateAndSubmit(){
-	if(validateAll()){
-		//submit only if all validation rules are passed
-		if(window.confirm("Proceed? are u sure ?")){
-			submitDetails();
-		}
-	}else{
-		//do nothing
-	}
-}
 
-function validateAndCheckJobStatus(){
-	if(validateJobid()){
-		//jobid has been validated, ok to query server
-		checkJobStatus();
-	}else{
-		//do nothing
-	}
-}
+
 </script>
 </head>
 <body>
@@ -103,9 +84,11 @@ function validateAndCheckJobStatus(){
 </optgroup>
 </select><br><br>
 
-
+<div>
 <input type="button" value="SUBMIT" onclick="validateAndSubmit();">
-
+<span class="feedback" id='submitFeedback'></span>
+<span class="feedback" id='cm'></span>
+</div>
 </div>
 
 <div id="tabs-2">
