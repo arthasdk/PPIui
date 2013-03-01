@@ -54,6 +54,8 @@ function checkJobStatus(){
 					});
 					if(pc==100){
 						document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>";
+					}else{
+						window.setTimeout('checkJobStatus()',2000);
 					}
 				}
 			}
