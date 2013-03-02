@@ -1,0 +1,85 @@
+@font-face{
+font-family: Exo;
+src: url("../res/exoreg.otf");
+}
+@font-face{
+font-family: ExoBold;
+src: url("../res/exobold.otf");
+}
+
+b{
+font-family: ExoBold;
+}
+
+html{
+margin: 0px;
+padding: 0px;
+height: 100%;
+}
+
+body{
+font-family: Exo;
+margin: 0px;
+padding: 0px;
+height: 100%;
+background-color: rgb(12,12,12);
+color: gray;
+}
+
+.main{
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+min-height: 100%;
+
+}
+
+.header{
+background: url("../res/pylori.jpg") #020202;
+font-size: 30px;
+text-align: left;
+vertical-align: bottom;
+height: 200px;
+
+color: rgb(210,210,210);
+}
+
+.banner{
+text-align: center;
+height: 200px;
+width: 800px;
+}
+
+.banner span{
+color: rgb(250,250,250);
+}
+
+input{
+font-family: Exo;
+color: white;
+background-color: rgb(24,24,24);
+text-align: center;
+}
+
+textarea{
+font-family: Exo;
+color: white;
+background-color: rgb(24,24,24);
+border-radius: 5px 0px 5px 0px;
+width:100%;
+}
+
+select{
+font-family: Exo;
+color: white;
+background-color: rgb(24,24,24);
+border-radius: 5px 0px 5px 0px;
+}
+
+.footer{
+
+
+width: 100%;
+height: 60px;
+background-color: rgba(128,128,128,0.5);
+}
