@@ -38,26 +38,27 @@ $.ajax({
 }
 
 function checkJobStatus(){
-	j=document.getElementById('job').value;
-	if(j.length>0){
-		$.ajax({
-			type: "GET",
-			url: "tools/getStatus.php?job="+j
-		}).done(
-			function(x){
-				if(x=="JE"){window.alert("Invalid Job#");}
-				else if(x=="FE"){window.alert("Error while fetching records");}
-				else{
-					pc=parseInt(x);
-					window.alert(x+"% done");
-					 $( "#progressbar" ).progressbar({
-						value: pc
-					});
-					if(pc==100){
-						document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>"
-					}
-				}
-			}
-		);
-	}
+j=document.getElementById('job').value;
+if(j.length>0){
+$.ajax({
+type: "GET",
+url: "tools/getStatus.php?job="+j
+}).done(
+function(x){
+if(x=="JE"){window.alert("Invalid Job#");}
+else if(x=="FE"){window.alert("Error while fetching records");}
+else{
+pc=parseInt(x);
+$( "#progressbar" ).progressbar({
+value: pc
+});
+if(pc==100){
+document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>";
+}else{
+window.setTimeout('checkJobStatus()',500);
+}
+}
+}
+);
+}
 }
