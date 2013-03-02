@@ -17,6 +17,11 @@ function validateAndSubmit(){
 		//submit only if all validation rules are passed
 		if(window.confirm("Proceed? are u sure ?")){
 			submitDetails();
+			//reset progressbar and result
+			$( "#progressbar" ).progressbar({
+value: 0
+});
+document.getElementById("res").innerHTML="";
 		}
 	}else{
 		//do nothing

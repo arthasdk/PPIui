@@ -11,12 +11,13 @@ if(empty($jobid)){
 		if(is_file($statf)){
 			header('Content-Description: File Transfer');
      			header('Content-Type: text/plain');
-     			header('Content-Disposition: attachment; filename='.basename($dp));
+     			header('Content-Disposition: attachment; filename='.$jobid.'-'.basename($statf));
      			header('Content-Transfer-Encoding: binary');
-     			header('Content-Length: '.filesize($dp));
-     			ob_clean();
+     			header('Content-Length: '.filesize($statf));
+     			//ob_clean();
+				readfile($statf);
      			flush();
-     			readfile($dp);
+     			
 		}else{
 			//echo "FE"; //file error, does not exist
 			exit();

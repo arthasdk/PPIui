@@ -92,7 +92,7 @@ if($flag==$FLAG_OK)// no problem then
  //echo $comand;
   //exec('svm-predict.exe $timestamp',$ar);// passing command value is creating some problem and needs further explore thats why I use comand string variable to solve it
  //ideally, what is needed is, starter.php should spawn a create the necessary resources, spawn a process and exit, giving the usre the jobid/timestamp for future reference
- exec($comand);//ok for passing command value is creating some problem and needs further explore thats why I use comand string variable to solve it
+ execInBackground($comand);//ok for passing command value is creating some problem and needs further explore thats why I use comand string variable to solve it
  $msg="EX".$timestamp; //executing
 
 // session_start(); //not needed

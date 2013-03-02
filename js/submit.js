@@ -27,7 +27,7 @@ $.ajax({
 		else if(x.substr(0,2)=="EX"){
 		ts=x.substr(2);
 		document.getElementById('job').value=ts;
-		window.alert("Analysing");
+		window.alert("Analysing...");
 		}
 		else{
 			window.alert(x);
@@ -54,8 +54,10 @@ value: pc
 });
 if(pc==100){
 document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>";
+window.alert("Job Done!!!");
 }else{
 window.setTimeout('checkJobStatus()',500);
+
 }
 }
 }
