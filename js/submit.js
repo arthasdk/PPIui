@@ -16,7 +16,7 @@ for(i=0;i<spec.length;i++){
 	}
 $.ajax({
 	type: "POST",
-	url: "tools/starter.php",
+	url: "starter.php",
 	data:{name: name, email: mail, seq1: seq1, seq2: seq2, species: species}
 	}
 ).done(
@@ -49,14 +49,11 @@ function checkJobStatus(){
 				else if(x=="FE"){window.alert("Error while fetching records");}
 				else{
 					pc=parseInt(x);
+					window.alert(x+"% done");
 					 $( "#progressbar" ).progressbar({
 						value: pc
 					});
-					if(pc==100){
-						document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>";
-					}else{
-						window.setTimeout('checkJobStatus()',2000);
-					}
+					document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>"
 				}
 			}
 		);
