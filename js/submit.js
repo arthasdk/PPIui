@@ -53,7 +53,9 @@ function checkJobStatus(){
 					 $( "#progressbar" ).progressbar({
 						value: pc
 					});
-					document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>"
+					if(pc==100){
+						document.getElementById("res").innerHTML="<a href='tools/getResult.php?job="+document.getElementById('job').value+"'>Result</a>"
+					}
 				}
 			}
 		);
